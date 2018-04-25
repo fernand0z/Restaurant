@@ -1,13 +1,14 @@
 // Dependencies
 // =============================================================
-var express = require("express");
-var bodyParser = require("body-parser");
-var path = require("path");
+const express = require("express");
+const bodyParser = require("body-parser");
+const path = require("path");
+const fs = require("fs");
 
 // Sets up the Express App
 // =============================================================
-var app = express();
-var PORT = process.env.PORT || 3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,7 +42,14 @@ var customers = [
         customerID: 004
     }];
 
-
+var waitlist = [
+    {
+        customerName: "Hungry Person",
+        phoneNumber: "555-555-0004",
+        customerEmail: "hungry@foodplz.com",
+        customerID: 005
+    }
+]
 // Routes
 // =============================================================
 
@@ -61,6 +69,11 @@ app.get("/res", function (req, res) {
 // Displays all customers
 app.get("/api/customers", function (req, res) {
     return res.json(customers);
+});
+
+// Displays waitlist
+app.get("/api/waitlist", function (req, res) {
+    return res.json(waitlist);
 });
 
 // Displays a single customer, or returns false

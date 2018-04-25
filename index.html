@@ -1,39 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Tables Page</title>
 
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous">
 
 </head>
+
 <body>
 
 	<div class="container">
 
-		<div class="jumbotron">
-			<h1 class="text-center"><span class="glyphicon glyphicon-glass"></span> HOT NEW RESTAURANT</h1>
+		<div class="jumbotron" style="margin-top: 2%; border: 6px solid cyan; background: rgba(80, 80, 80, 0.8); border-radius: 20px;">
+			<h1 class="text-center" style="color: white; text-shadow: 2px 2px 2px #d9534f;font-weight: bold;">
+				<span class="glyphicon glyphicon-glass"></span> HOT NEW RESTAURANT</h1>
 			<hr>
-            <h2 class="text-center">We only have 8 tables!</h2>
-            <h2>Book your table before they all are gone!</h2>
+			<h2 class="text-center" style="color: white; font-weight: bold; text-shadow: 1px 1px 1px cyan;">We only have 8 tables!</h2>
+			<h2 class="text-center" style="color: white; font-weight: bold; text-shadow: 1px 1px 1px cyan;">Book your table before they all are gone!</h2>
 			<br>
 
 			<div class="text-center">
-				<a href="/res"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
-				<a href="/form"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
+				<a href="/res">
+					<button type="button" class="btn btn-lg btn-primary">
+						<span class="glyphicon glyphicon-list-alt"></span> View Tables</button>
+				</a>
+				<a href="/form">
+					<button type="button" class="btn btn-lg btn-danger">
+						<span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button>
+				</a>
 			</div>
 
 		</div>
 
-    <footer class="footer">
-      <div class="container">
-	        <p><a href="/api/customers">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p>
-      </div>
-    </footer>
+		<footer class="footer">
+			<div class="container">
+				<p>
+					<a href="/api/customers">API Table Link</a> |
+					<a href="/api/waitlist">API Wait List</a>
+				</p>
+			</div>
+		</footer>
 
 	</div>
 
 
 </body>
+
 </html>
