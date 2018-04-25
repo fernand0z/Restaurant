@@ -40,7 +40,32 @@ var customers = [
         phoneNumber: "928-446-2569",
         customerEmail: "zacarias@u.arizona.edu",
         customerID: 004
-    }];
+    },
+    {
+        customerName: "Abe",
+        phoneNumber: "555-555-0000",
+        customerEmail: "abe@abeco.com",
+        customerID: 001
+    },
+    {
+        customerName: "Roland",
+        phoneNumber: "555-555-0002",
+        customerEmail: "roland@rolandco.com",
+        customerID: 002
+    },
+    {
+        customerName: "Roland",
+        phoneNumber: "555-555-0002",
+        customerEmail: "roland@rolandco.com",
+        customerID: 002
+    },
+    {
+        customerName: "Bob",
+        phoneNumber: "555-555-0003",
+        customerEmail: "bob@bobco.com",
+        customerID: 003
+    }
+];
 
 var waitlist = [
     {
@@ -91,6 +116,8 @@ app.get("/api/waitlist", function (req, res) {
 //     return res.json(false);
 // });
 
+
+
 // Create New Customers - takes in JSON input
 app.post("/api/tables", function (req, res) {
     // req.body hosts is equal to the JSON post sent from the user
@@ -98,9 +125,15 @@ app.post("/api/tables", function (req, res) {
     var newcustomer = req.body;
 
     console.log(newcustomer);
-
+    
+    if (customers.length > 8) {
+        waitlist.push(newcustomer);
+        alert("You've been added to our waitlist.");
+    }
+    else {
     customers.push(newcustomer);
-
+    
+    }
     res.json(newcustomer);
 });
 
