@@ -74,7 +74,7 @@ var waitlist = [
         customerEmail: "hungry@foodplz.com",
         customerID: 005
     }
-]
+];
 // Routes
 // =============================================================
 
@@ -124,14 +124,16 @@ app.post("/api/tables", function (req, res) {
     // This works because of our body-parser middleware
     var newcustomer = req.body;
 
-    console.log(newcustomer);
     
-    if (customers.length > 8) {
+    
+    if (customers.length > 7) {
         waitlist.push(newcustomer);
-        alert("You've been added to our waitlist.");
+        console.log("Customer Length: " + customers.length);
+        res.json({"status": "wait"});
     }
     else {
-    customers.push(newcustomer);
+        customers.push(newcustomer);
+        res.json({"status": "reserved"});
     
     }
     res.json(newcustomer);
