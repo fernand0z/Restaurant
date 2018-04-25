@@ -1,40 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<title>Reservation Page</title>
 
 	<!-- Latest compiled and minified CSS & JS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-	 crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </head>
-
 <body>
 
 	<div class="container">
 
 		<div class="jumbotron">
-			<h1 class="text-center">
-				<span class="glyphicon glyphicon-fire"></span> Hot Restaurant</h1>
+			<h1 class="text-center"><span class="glyphicon glyphicon-fire"></span> Hot Restaurant</h1>
 			<hr>
 			<h2 class="text-center">Make your reservation</h2>
 			<br>
 
 			<div class="text-center">
-				<a href="/res">
-					<button type="button" class="btn btn-lg btn-primary">
-						<span class="glyphicon glyphicon-list-alt"></span> View Tables</button>
-				</a>
-				<a href="/">
-					<button type="button" class="btn btn-lg btn-default">
-						<span class="glyphicon glyphicon-home"></span>
-					</button>
-				</a>
+				<a href="/res"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
+				<a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
 			</div>
 		</div>
 
@@ -79,21 +67,17 @@
 			</div>
 		</div>
 
-		<footer class="footer">
-			<div class="container">
+	    <footer class="footer">
+	      <div class="container">
 
-				<!-- CONSIDER REMOVING -->
-				<p>
-					<a href="/api/customers">API Table Link</a> |
-					<a href="/api/waitlist">API Wait List</a>
-				</p>
-			</div>
-		</footer>
+			<!-- CONSIDER REMOVING -->
+	        <p><a href="/api/customers">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> </p>
+	      </div>
+	    </footer>
 
 	</div>
 
 </body>
-
 </html>
 
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
@@ -104,7 +88,7 @@
 	// Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
 	// In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
 
-	$(".submit").on("click", function () {
+	$(".submit").on("click", function(){
 
 		// Here we grab the form elements
 		var newReservation = {
@@ -125,26 +109,26 @@
 		// We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
 		var currentURL = window.location.origin;
 
-		$.post(currentURL + "/api/tables", newReservation,
-			function (data) {
-				// If a table is available... tell user they are booked.
-				if (data.status === "wait") {
-					alert("You've made the waitlist!");
-				}
-				else {
-					alert("Yay!  You are officially booked!");
+	    $.post(currentURL + "/api/tables", newReservation,
+	    function(data){
+	    	// If a table is available... tell user they are booked.
+	    	if(data.status ==="wait"){
+	    		alert("You've made the waitlist!");
+	    	}
+			else {
+				alert("Yay!  You are officially booked!");
 				};
 
-				// Clear the form when submitting
-				$('#reserve_name').val("");
-				$('#reserve_phone').val("");
-				$('#reserve_email').val("");
-				$('#reserve_uniqueID').val("");
+	    	// Clear the form when submitting
+    		$('#reserve_name').val("");
+			$('#reserve_phone').val("");
+			$('#reserve_email').val("");
+			$('#reserve_uniqueID').val("");
 
-			});
+	    });
 
-		return false;
+return false;
 
-	});
+});
 
 </script>
